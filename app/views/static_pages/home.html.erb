@@ -1,0 +1,12 @@
+<div class="jumpotron">
+  <div class="container center head_banner">
+    <h1><%= t "app_name" %></h1>
+    <h2>
+      <%= t ".introduction", app_name: t("app_name") %>
+    </h2>
+    <%= link_to t(".signup_button"), signup_path, class: "btn btn-lg btn-primary" %>
+  </div>
+</div>
+<div class="container">
+  <%= link_to image_tag("book.png", alt: t(".alt_image")), "#" %>
+</div>
