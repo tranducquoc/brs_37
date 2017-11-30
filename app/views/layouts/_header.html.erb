@@ -4,7 +4,36 @@
       class: "logo" %>
     <nav>
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to t("login"), "#" %></li>
+        <% if logged_in? %>
+          <li><%= link_to t("user"), '#' %></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <%= t "account" %><b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+              <li class="divider"></li>
+              <li><%= link_to t("log_out"), logout_path, method: :delete %></li>
+            </ul>
+          </li>
+        <% else %>
+          <div class="login-box">
+            <%= form_for :login, url: login_path do |f| %>
+              <div>
+                <%= f.email_field :email, placeholder: t("email") %>
+                <%= f.password_field :password, placeholder: t("password") %>
+
+                <%= f.submit t("login"), class: "submit-button" %>
+              </div>
+              <div class="checkbox">
+                <%= f.label :remember_me do %>
+                  <%= f.check_box :remember_me %>
+                  <span><%= t "remember_me" %></span>
+                <% end %>
+                <%= link_to t("forgot_your_password"), "#" %>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
       </ul>
     </nav>
   </div>

@@ -4,7 +4,7 @@
 /* universal */
 
 body {
-  padding-top: 50px;
+  padding-top: 100px;
 }
 
 section {
@@ -30,14 +30,14 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  font-size: 3em;
+  font-size: 48px;
   letter-spacing: -2px;
   margin-bottom: 30px;
   text-align: center;
 }
 
 h2 {
-  font-size: 1.2em;
+  font-size: 19.2px;
   letter-spacing: -1px;
   margin-bottom: 30px;
   text-align: center;
@@ -46,8 +46,8 @@ h2 {
 }
 
 p {
-  font-size: 1.1em;
-  line-height: 1.7em;
+  font-size: 17.6px;
+  line-height: 27.2px;
 }
 
 /* header */
@@ -55,7 +55,7 @@ p {
 .logo {
   float: left;
   margin-right: 10px;
-  font-size: 1.7em;
+  font-size: 27.2px;
   color: #fff;
   text-transform: uppercase;
   letter-spacing: -1px;
@@ -108,4 +108,46 @@ footer {
       margin-left: 15px;
     }
   }
+}
+/* login box */
+.login-box {
+  max-width: 500px;
+  margin: 0 auto;
+  position: relative;
+  border-radius: 5px;
+  margin-top: 12px;
+}
+
+.login-box input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: .14.4px;
+  color: black;
+  line-height: normal;
+}
+
+.submit-button {
+  margin-top: 0px;
+  padding: 10px;
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 11.2px;
+  letter-spacing: 1px;
+  background-color: white;
+  cursor:pointer;
+  outline: none;
+}
+
+.checkbox {
+  span {
+    color: white;
+    margin-left: 10px;
+    font-weight: normal;
+    margin-right: 45px;
+  }
+}
+
+.message {
+  text-align: center;
 }
