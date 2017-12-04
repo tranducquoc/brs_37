@@ -19,8 +19,12 @@ class LoginController < ApplicationController
   private
 
   def login_success
-    flash[:success] = t "login_success"
-    log_in @user
-    remember @user if params[:login][:remember_me] == Settings.remember_me.checked
+    if @user.activated?
+      flash[:success] = t "login_success"
+      log_in @user
+      remember @user if params[:login][:remember_me] == Settings.remember_me.checked
+    else
+      flash[:warning] = t "account_not_activated"
+    end
   end
 end

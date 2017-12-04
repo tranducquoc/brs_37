@@ -6,3 +6,5 @@ email:
   maximum_length: 255
 remember_me:
   checked: "1"
+mailer:
+  default: "nmduc3@gmail.com"

@@ -4,7 +4,9 @@
     <h2>
       <%= t ".introduction", app_name: t("app_name") %>
     </h2>
-    <%= link_to t(".signup_button"), signup_path, class: "btn btn-lg btn-primary" %>
+    <% unless logged_in? %>
+      <%= link_to t(".signup_button"), signup_path, class: "btn btn-lg btn-primary" %>
+    <% end %>
   </div>
 </div>
 <div class="container">
