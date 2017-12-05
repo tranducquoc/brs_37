@@ -1,1 +1,18 @@
-<%= @user.full_name %>, <%= @user.email %>
+<div class="container">
+  <aside class="col-md-5">
+    <div class="arthor-detail-column">
+      <div class="arthor-img">
+        <% if @user.avatar %>
+          <%= link_to image_tag(@user.avatar, alt: @user.full_name), "#" %>
+        <% end %>
+        <% if current_user? @user %>
+          <%= link_to t("edit_profile"), "#", class: "edit-tag" %>
+        <% end %>
+      </div>
+      <div class="user-show">
+      <%= render "follow_form" %>
+      <%= render "stats", object: @user %>
+      </div>
+    </div>
+  </aside>
+</div>

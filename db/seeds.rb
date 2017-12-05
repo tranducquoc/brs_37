@@ -3,7 +3,7 @@ User.create!(
   email: "admin@gmail.com",
   password: "zxczxc",
   password_confirmation: "zxczxc",
-  avatar: "app/assets/images/admin.jpg",
+  avatar: "admin.jpg",
   is_admin: true,
   activated: true,
   activated_at: Time.zone.now
@@ -13,7 +13,7 @@ User.create!(
   name = Faker::Name.name
   email = "user#{n+1}@gmail.com"
   password = "zxczxc"
-  avatar = "app/assets/images/user.png"
+  avatar = "user.png"
   User.create!(
     full_name: name,
     email: email,
@@ -31,7 +31,7 @@ end
   author = Faker::Name.name
   the_number_of_pages = 20 + Random.rand(300)
   summary = "This is summary of this book"
-  cover_image = "app/assets/images/cover_image.png"
+  cover_image = "cover_image.png"
   rating = 1 + Random.rand(4)
   Book.create!(
     title: title,
@@ -43,3 +43,10 @@ end
     rating: rating
   )
 end
+
+users = User.all
+user  = users.first
+following = users[2..50]
+followers = users[3..40]
+following.each {|followed| user.follow(followed)}
+followers.each {|follower| follower.follow(user)}

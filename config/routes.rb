@@ -5,8 +5,9 @@ Rails.application.routes.draw do
   get "/contact", to: "static_pages#contact"
   get "/signup", to: "users#new"
   post "/login", to: "login#create"
-  get "/logout", to: "login#destroy"
+  delete "/logout", to: "login#destroy"
 
   resources :users
   resources :account_activations, only: :edit
+  resources :relationships, only: %i(create destroy)
 end
