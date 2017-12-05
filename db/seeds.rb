@@ -4,7 +4,9 @@ User.create!(
   password: "zxczxc",
   password_confirmation: "zxczxc",
   avatar: "app/assets/images/admin.jpg",
-  is_admin: true
+  is_admin: true,
+  activated: true,
+  activated_at: Time.zone.now
 )
 
 49.times do |n|
@@ -17,7 +19,9 @@ User.create!(
     email: email,
     password: password,
     password_confirmation: password,
-    avatar: avatar
+    avatar: avatar,
+    activated: true,
+    activated_at: Time.zone.now
   )
 end
 
