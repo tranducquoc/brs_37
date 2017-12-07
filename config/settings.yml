@@ -11,5 +11,6 @@ mailer:
 user:
   index: 20
   show_buy_request: 4
+  show_activities: 5
 buy_requests:
   index: 10

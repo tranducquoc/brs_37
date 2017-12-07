@@ -49,14 +49,23 @@ class User < ApplicationRecord
 
   def follow other_user
     following << other_user
+    relationship = Relationship.find_by(follower_id: id, followed_id: other_user.id)
+    create_activity relationship, "followed"
   end
 
   def unfollow other_user
+    relationship = Relationship.find_by(follower_id: id, followed_id: other_user.id)
+    create_activity relationship, "unfollow"
     following.delete other_user
   end
 
   def following? other_user
     following.include? other_user
+  end
+
+  def liked? activity
+    like = likes.find_by activity_id: activity.id
+    like.present?
   end
 
   class << self
@@ -79,5 +88,13 @@ class User < ApplicationRecord
   def create_activation_digest
     self.activation_token = User.new_token
     self.activation_digest = User.digest activation_token
+  end
+
+  def create_activity object, action
+    activities.create!(
+      id_object: object.id,
+      type_object: object.class.name,
+      action: action
+    )
   end
 end

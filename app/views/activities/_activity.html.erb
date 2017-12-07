@@ -1,0 +1,10 @@
+<li>
+  <%= activity.user_id %> <%= t activity.action %> <%= activity.type_object %>
+  <div id="activity-<%= activity.id %>">
+    <% if current_user.liked? activity %>
+      <%= render "unlike", id: activity.id %>
+    <% else %>
+      <%= render "like", id: activity.id %>
+    <% end %>
+  </div>
+</li>
