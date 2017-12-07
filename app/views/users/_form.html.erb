@@ -11,5 +11,7 @@
   <%= f.label :password_confirmation, t("password_confirm") %>
   <%= f.password_field :password_confirmation, class: "form-control form-sign-up", placeholder: t("msg_password_confirm") %>
 
+  <%= f.file_field :avatar %>
+  <%= image_tag @user.avatar if @user.avatar? %>
   <%= f.submit yield(:button_text), class: "btn btn-primary" %>
 <% end %>

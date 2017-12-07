@@ -2,11 +2,9 @@
   <aside class="col-md-5">
     <div class="arthor-detail-column">
       <div class="arthor-img">
-        <% if @user.avatar %>
-          <%= link_to image_tag(@user.avatar, alt: @user.full_name), "#" %>
-        <% end %>
+        <%= image_tag @user.avatar, alt: @user.full_name if @user.avatar? %>
         <% if current_user? @user %>
-          <%= link_to t("edit_profile"), "#", class: "edit-tag" %>
+          <%= link_to t("edit_profile"), edit_user_path(@user) , class: "edit-tag" %>
         <% end %>
       </div>
       <div class="user-show">
