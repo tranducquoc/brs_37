@@ -11,6 +11,7 @@
               <%= t "account" %><b class="caret"></b>
             </a>
             <ul class="dropdown-menu">
+              <li><%= link_to t("settings"), edit_user_path(current_user) %></li>
               <li class="divider"></li>
               <li><%= link_to t("log_out"), logout_path, method: :delete %></li>
             </ul>

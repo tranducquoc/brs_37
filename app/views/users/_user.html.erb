@@ -1,9 +1,7 @@
 <div class="col-lg-4 user-card">
   <div class="card-profile">
     <div class="card-profile_visual">
-      <% if user.avatar %>
-        <%= link_to image_tag(user.avatar, alt: user.full_name), "#" %>
-      <% end %>
+      <%= image_tag user.avatar, alt: user.full_name if user.avatar? %>
     </div>
 
     <div class="card-profile_user-infos">

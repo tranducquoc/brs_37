@@ -60,3 +60,7 @@ en:
   followers: "Followers"
   edit_profile: "Edit Profile"
   nil_relationship: "Can't found this relationship"
+  save_changes: "Save"
+  settings: "Settings"
+  cant_edit: "You can't edit this user"
+  update_success: "Update information success"
