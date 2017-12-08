@@ -26,11 +26,11 @@ User.create!(
 end
 
 50.times do |n|
-  title = "book name #{n+1}"
+  title = Faker::Book.title
   publish_date = Time.zone.now
-  author = Faker::Name.name
+  author = Faker::Book.author
   the_number_of_pages = 20 + Random.rand(300)
-  summary = "This is summary of this book"
+  summary = Faker::Lorem.sentences
   cover_image = "cover_image.png"
   rating = 1 + Random.rand(4)
   Book.create!(
@@ -50,3 +50,8 @@ following = users[2..50]
 followers = users[3..40]
 following.each {|followed| user.follow(followed)}
 followers.each {|follower| follower.follow(user)}
+
+users = User.order(:created_at).take(6)
+5.times do |n|
+  users.each { |user| user.buy_requests.create!(book_id: n+1, request_status: 0)}
+end
