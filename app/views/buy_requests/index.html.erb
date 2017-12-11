@@ -1,0 +1,14 @@
+<div class="container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th><%= t "create_at" %></th>
+        <th><%= t "user_name" %></th>
+        <th><%= t "book_title" %></th>
+        <th><%= t "request_status" %></th>
+      </tr>
+    </thead>
+    <%= render @buy_requests %>
+    <%= will_paginate @buy_requests %>
+  </table>
+</div>

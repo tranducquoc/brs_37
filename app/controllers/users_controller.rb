@@ -5,10 +5,13 @@ class UsersController < ApplicationController
   before_action :nil_user, only: :show
 
   def index
-    @users = User.paginate page: params[:page], per_page: 20
+    @users = User.paginate page: params[:page], per_page: Settings.user.index
   end
 
-  def show; end
+  def show
+    @buy_requests = @user.buy_requests
+      .paginate page: params[:page], per_page: Settings.user.show_buy_request
+  end
 
   def new
     @user = User.new
@@ -37,10 +40,6 @@ class UsersController < ApplicationController
   end
 
   private
-
-  def find_user
-    @user = User.find_by id: params[:id]
-  end
 
   def correct_user
     return if current_user? @user

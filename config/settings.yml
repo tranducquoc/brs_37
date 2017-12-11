@@ -8,3 +8,8 @@ remember_me:
   checked: "1"
 mailer:
   default: "nmduc3@gmail.com"
+user:
+  index: 20
+  show_buy_request: 4
+buy_requests:
+  index: 10
