@@ -54,8 +54,6 @@ class User < ApplicationRecord
   end
 
   def unfollow other_user
-    relationship = Relationship.find_by(follower_id: id, followed_id: other_user.id)
-    create_activity relationship, "unfollow"
     following.delete other_user
   end
 
@@ -66,6 +64,10 @@ class User < ApplicationRecord
   def liked? activity
     like = likes.find_by activity_id: activity.id
     like.present?
+  end
+
+  def activity_feed
+    Activity.arrange.activity_feed(following_ids, id)
   end
 
   class << self
