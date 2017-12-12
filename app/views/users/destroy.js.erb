@@ -1,0 +1,7 @@
+$('#user-avt-<%= @user.id %>').html('<%= t "deleted" %>');
+$('#user-name-<%= @user.id %>').html('<%= t "deleted" %>');
+$('#user-email-<%= @user.id %>').html('');
+$('#flash').html('<%= j render "layouts/flash" %>');
+$('#delete-user-<%= @user.id %>').html('');
+$('#following-user-<%= @user.id %>').html('');
+$('#followers-user-<%= @user.id %>').html('');

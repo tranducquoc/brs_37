@@ -6,10 +6,9 @@ Rails.application.routes.draw do
   get "/signup", to: "users#new"
   post "/login", to: "login#create"
   delete "/logout", to: "login#destroy"
-
   resources :users
   resources :account_activations, only: :edit
   resources :relationships, only: %i(create destroy)
-  resources :buy_requests, only: :index
+  resources :buy_requests, only: %i(index destroy update)
   resources :likes, only: %i(create destroy)
 end

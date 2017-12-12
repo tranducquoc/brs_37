@@ -1,8 +1,25 @@
 <tbody>
   <tr>
-    <td><%= l buy_request.created_at, format: :long %></td>
-    <td><%= user_name_for buy_request.user_id %></td>
-    <td><%= book_title_for buy_request.book_id %></td>
-    <td><%= t buy_request.request_status %></td>
+    <td id="br-cr-at-<%= buy_request.id %>"><%= l buy_request.created_at, format: :long %></td>
+    <td id="br-user-name-<%= buy_request.id %>"><%= user_name_for buy_request.user_id %></td>
+    <td id="br-book-id-<%= buy_request.id %>"><%= book_title_for buy_request.book_id %></td>
+    <td id="br-status-<%= buy_request.id %>"><%= t buy_request.request_status %></td>
+    <% if current_user.is_admin? %>
+      <td id="br-select-<%= buy_request.id %>">
+        <%= form_for buy_request, remote: true do |f| %>
+          <%= f.select :request_status, options_for_select(
+            BuyRequest.request_statuses.keys,
+            buy_request.request_status
+            ) %>
+          <%= f.submit t "save_changes" %>
+        <% end %>
+      </td>
+    <% end %>
+    <% if current_user? @user %>
+      <td id="br-delete-<%= buy_request.id %>">
+        <%= link_to t("cancel"), buy_request, method: :delete, remote: true,
+          data: {confirm: t("you_sure")} %>
+      </td>
+    <% end %>
   </tr>
 </tbody>

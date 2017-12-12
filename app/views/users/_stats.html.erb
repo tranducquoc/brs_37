@@ -2,11 +2,11 @@
   <div class="stats-holder">
     <div class="user-stats">
       <strong ><%= t "following" %></strong>
-      <span id="following"><%= object.following.size %></span>
+      <span id="following-user-<%= object.id %>"><%= object.following.size %></span>
     </div>
     <div class="user-stats">
       <strong><%= t "followers" %></strong>
-      <span id="followers"><%= object.followers.size %></span>
+      <span id="followers-user-<%= object.id %>"><%= object.followers.size %></span>
     </div>
   </div>
 </div>
