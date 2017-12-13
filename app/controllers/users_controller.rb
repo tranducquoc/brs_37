@@ -9,8 +9,13 @@ class UsersController < ApplicationController
   end
 
   def show
-    @buy_requests = @user.buy_requests
-      .paginate page: params[:page], per_page: Settings.user.show_buy_request
+    @buy_requests = @user
+      .buy_requests
+      .paginate page: params[:buy_request_page], per_page: Settings.user.show_buy_request
+    @activities = @user
+      .activities
+      .arrange
+      .paginate page: params[:activity_page], per_page: Settings.user.show_activities
   end
 
   def new

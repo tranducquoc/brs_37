@@ -11,4 +11,5 @@ Rails.application.routes.draw do
   resources :account_activations, only: :edit
   resources :relationships, only: %i(create destroy)
   resources :buy_requests, only: :index
+  resources :likes, only: %i(create destroy)
 end
