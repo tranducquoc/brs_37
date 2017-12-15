@@ -1,8 +1,9 @@
 class ReviewsController < ApplicationController
-  before_action :find_book
-  before_action :nil_book
   before_action :logged_in_user, only: %i(create destroy)
   before_action :correct_user, only: :destroy
+  before_action :find_book
+  before_action :nil_book
+  before_action :blank_review, only: :create
 
   def create
     create_review
@@ -27,5 +28,11 @@ class ReviewsController < ApplicationController
     else
       flash[:danger] = t "something_wrong"
     end
+  end
+
+  def blank_review
+    return if review_params[:content].present?
+    flash[:danger] = t "blank_review"
+    redirect_to @book
   end
 end

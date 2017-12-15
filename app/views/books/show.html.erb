@@ -8,7 +8,7 @@
   <h4><%= t "review" %></h4>
   <div class="review"><%= render "reviews/review_form" %></div>
   <% if @reviews.any? %>
-    <div><%= render @reviews %></div>
+    <div class="review_form"><%= render @reviews %></div>
   <% else %>
     <div><%= t "dont_have_review" %></div>
   <% end %>

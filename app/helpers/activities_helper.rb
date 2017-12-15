@@ -4,6 +4,8 @@ module ActivitiesHelper
       activity_relationship activity
     elsif activity.type_object == Review.name
       activity_review activity
+    elsif activity.type_object == Comment.name
+      activity_comment activity
     end
   end
 
@@ -22,6 +24,17 @@ module ActivitiesHelper
     review = Review.find_by id: activity.id_object
     if review.present?
       book = Book.find_by id: review.book_id
+      control_nil book
+      "#{I18n.t 'had'} #{activity.action} #{I18n.t 'to'} \"#{book.title}\""
+    elsif !activity.destroy
+      flash[:danger] = t "destroy_activity_wrong"
+    end
+  end
+
+  def activity_comment activity
+    comment = Comment.find_by id: activity.id_object
+    if comment.present?
+      book = Book.find_by id: comment.review.book_id
       control_nil book
       "#{I18n.t 'had'} #{activity.action} #{I18n.t 'to'} \"#{book.title}\""
     elsif !activity.destroy

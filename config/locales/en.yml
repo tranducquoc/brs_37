@@ -96,3 +96,8 @@ en:
   posted: "Posted"
   had: "had"
   to: "to"
+  blank_review: "Review can't be blank"
+  blank_comment: "Comment can't be blank"
+  comment_this_review: "Comment this Review"
+  reply: "Reply"
+  comment_created: "Comment created!"
