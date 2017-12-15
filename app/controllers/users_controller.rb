@@ -1,9 +1,10 @@
 class UsersController < ApplicationController
   before_action :logged_in_user, except: %i(new create)
-  before_action :find_user, only: %i(show edit update)
+  before_action :find_user, except: %i(index create new)
   before_action :correct_user, only: %i(edit update)
-  before_action :nil_user, only: :show
-
+  before_action :nil_user, only: %i(show destroy)
+  before_action :admin_user, only: :destroy
+  before_action :important, only: :destroy
   def index
     @users = User.paginate page: params[:page], per_page: Settings.user.index
   end
@@ -44,6 +45,17 @@ class UsersController < ApplicationController
     end
   end
 
+  def destroy
+    if @user.destroy
+      flash[:success] = t "delete_success"
+    else
+      flash[:danger] = t "something_wrong"
+    end
+    respond_to do |format|
+      format.js
+    end
+  end
+
   private
 
   def correct_user
@@ -54,5 +66,11 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit :full_name, :email, :password, :password_confirmation, :avatar
+  end
+
+  def important
+    return unless @user.is_admin?
+    flash[:danger] = t "cant_delete_important"
+    redirect_to root_path
   end
 end
