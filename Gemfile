@@ -24,6 +24,7 @@ gem "carrierwave"
 gem "mini_magick", "4.7.0"
 gem "fog-aws", "2.0.0"
 gem "pry"
+gem "figaro"
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
   gem "capybara", "~> 2.13"

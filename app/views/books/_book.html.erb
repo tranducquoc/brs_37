@@ -1,7 +1,7 @@
 <div class="col-lg-4 user-card">
   <div class="card-profile">
     <div class="card-profile_visual" id="book-cover-<%= book.id %>">
-      <%= image_tag book.cover_image, alt: book.title if book.cover_image %>
+      <%= image_tag book.cover_image, alt: book.title, class: "cover" if book.cover_image %>
     </div>
 
     <div class="card-profile_user-infos">

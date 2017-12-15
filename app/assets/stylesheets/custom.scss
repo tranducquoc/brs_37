@@ -457,6 +457,20 @@ input[type="submit"]:active {
   display: inline-block;
 }
 
+.avatar {
+  height: 360px;
+  width: 360px;
+}
+
+.avatar-book {
+  height: 360px;
+  width: 280px;
+}
+
+.cover {
+  height: 272px;
+  width: 255px;
+}
 .arthor-detail-column .arthor-img .edit-tag{
   position: absolute;
   left: 0;
@@ -470,7 +484,17 @@ input[type="submit"]:active {
   color: #fff;
 }
 
-.activities {
+.activities-user {
+  width: 60%;
+  float: right;
+  list-style: none;
+  li {
+    padding: 10px 0;
+    border-top: 1px solid #e8e8e8;
+  }
+}
+
+.activities-home {
   list-style: none;
   li {
     padding: 10px 0;
@@ -512,4 +536,8 @@ ul {
 
 li {
   list-style-type: none;
+}
+.book-right {
+  float: right;
+  max-width: 70%;
 }

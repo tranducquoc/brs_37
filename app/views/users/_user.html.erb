@@ -1,7 +1,7 @@
 <div class="col-lg-4 user-card">
   <div class="card-profile">
     <div class="card-profile_visual" id="user-avt-<%= user.id %>">
-      <%= image_tag user.avatar, alt: user.full_name if user.avatar? %>
+      <%= image_tag user.avatar, alt: user.full_name, class: "cover" if user.avatar? %>
     </div>
 
     <div class="card-profile_user-infos">
