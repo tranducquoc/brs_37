@@ -1,7 +1,7 @@
-<%= form_for current_user.likes.find_by(activity_id: id),
+<%= form_for current_user.likes.find_by(activity_id: activity.id),
   method: :delete,
   remote: true do |f|  %>
-  <div><%= hidden_field_tag :activity_id, id %></div>
-  <div><%= hidden_field_tag :user_id, @user.id %></div>
+  <div><%= hidden_field_tag :activity_id, activity.id %></div>
+  <div><%= hidden_field_tag :user_id, activity.user_id %></div>
   <%= f.submit t("unlike") %>
 <% end %>

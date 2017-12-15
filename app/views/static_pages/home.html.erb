@@ -9,6 +9,16 @@
     <% end %>
   </div>
 </div>
+<% if logged_in? %>
+  <div class="container">
+    <% if @activity_items.any? %>
+      <ol class="activities">
+        <%= render @activity_items %>
+      </ol>
+      <%= will_paginate @activity_items %>
+    <% end %>
+  </div>
+<% end %>
 <div class="container">
   <%= link_to image_tag("book.png", alt: t(".alt_image")), "#" %>
 </div>

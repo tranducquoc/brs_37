@@ -14,6 +14,5 @@ user:
   show_activities: 5
 buy_requests:
   index: 10
-  pending: "pending"
-  aproved: "aproved"
-  reject: "reject"
+home:
+  show_activities_feed: 10

@@ -3,6 +3,7 @@ class BuyRequestsController < ApplicationController
   before_action :admin_user, only: %i(index update)
   before_action :find_request, only: %i(update destroy)
   before_action :right_request, only: :destroy
+
   def index
     @buy_requests = BuyRequest
       .sort_by_status

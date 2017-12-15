@@ -10,7 +10,6 @@ class LikesController < ApplicationController
       flash[:danger] = t "something_wrong"
     end
     respond_to do |format|
-      format.html{redirect_to @user}
       format.js
     end
   end
@@ -18,7 +17,6 @@ class LikesController < ApplicationController
   def destroy
     flash[:danger] = t "something_wrong" unless @like.destroy
     respond_to do |format|
-      format.html{redirect_to @user}
       format.js
     end
   end
