@@ -1,0 +1,9 @@
+<% if review.id %>
+  <li id="review-<%= review.id %>">
+    <span class="user"><%= link_to review.user.full_name, review.user %></span>
+    <p class="review-p"><%= review.content %></p>
+    <span class="timestamp">
+      <%= t "posted" %> <%= time_ago_in_words(review.created_at) %> <%= t "ago" %>.
+    </span>
+  </li>
+<% end %>

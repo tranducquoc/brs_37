@@ -1,0 +1,15 @@
+<div class="container">
+  <div>
+    <%= image_tag @book.cover_image, alt: @book.title if @book.cover_image %>
+    <%= @book.title %>
+    <%= @book.author %>
+    <%= @book.summary %>
+  </div>
+  <h4><%= t "review" %></h4>
+  <div class="review"><%= render "reviews/review_form" %></div>
+  <% if @reviews.any? %>
+    <div><%= render @reviews %></div>
+  <% else %>
+    <div><%= t "dont_have_review" %></div>
+  <% end %>
+</div>
