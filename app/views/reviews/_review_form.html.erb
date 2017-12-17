@@ -1,0 +1,7 @@
+<%= form_for [@book, @review] do |f| %>
+  <div><%= f.hidden_field :book_id, value: @book.id %></div>
+  <div class="field">
+    <%= f.text_area :content, placeholder: t("review_this_book") %>
+  </div>
+  <%= f.submit t("post"), class: "btn btn-primary" %>
+<% end %>

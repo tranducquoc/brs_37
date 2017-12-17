@@ -25,4 +25,18 @@ class ApplicationController < ActionController::Base
     flash[:danger] = t "not_admin"
     redirect_to root_path
   end
+
+  def nil_book
+    return if @book
+    flash[:danger] = t "nil_book"
+    redirect_to root_path
+  end
+
+  def create_activity object, action, user
+    user.activities.create!(
+      id_object: object.id,
+      type_object: object.class.name,
+      action: action
+    )
+  end
 end

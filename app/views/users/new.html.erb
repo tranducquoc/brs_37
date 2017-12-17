@@ -2,7 +2,7 @@
 <% provide :button_text, t("sign_me_up") %>
 <div class="container">
   <h1><%= t "signup" %></h1>
-  <%= render "shared/error_messages" %>
+  <%= render "shared/error_messages", object: @user %>
   <div class="signup-box">
     <div class="left">
       <%= render "form" %>

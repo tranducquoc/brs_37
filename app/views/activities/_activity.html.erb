@@ -1,5 +1,5 @@
 <li>
-  <%= activity.user.full_name %> <%= has activity %>
+  <%= activity.user.full_name %> <%= had activity %>
   <div id="activity-<%= activity.id %>">
     <% if current_user.liked? activity %>
       <%= render "users/unlike", activity: activity %>

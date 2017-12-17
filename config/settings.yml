@@ -16,3 +16,5 @@ buy_requests:
   index: 10
 home:
   show_activities_feed: 10
+book:
+  index: 20

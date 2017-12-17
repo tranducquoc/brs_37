@@ -1,0 +1,22 @@
+<div class="col-lg-4 user-card">
+  <div class="card-profile">
+    <div class="card-profile_visual" id="book-cover-<%= book.id %>">
+      <%= image_tag book.cover_image, alt: book.title if book.cover_image %>
+    </div>
+
+    <div class="card-profile_user-infos">
+      <span class="infos_name" id="book-title-<%= book.id %>">
+        <%= link_to book.title, book %>
+      </span>
+      <span class="infos_nick" id="book-author-<%= book.id %>">
+        <%= book.author %>
+      </span>
+    </div>
+    <% if current_user.is_admin? %>
+      <span id="delete-user-<%= book.id %>">
+        <%= link_to t("delete"), book, method: :delete, remote: true,
+          data: {confirm: t("you_sure")} %>
+      </span>
+    <% end %>
+  </div>
+</div>

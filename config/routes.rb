@@ -11,4 +11,7 @@ Rails.application.routes.draw do
   resources :relationships, only: %i(create destroy)
   resources :buy_requests, only: %i(index destroy update)
   resources :likes, only: %i(create destroy)
+  resources :books, only: %i(index show) do
+    resources :reviews, only: :create
+  end
 end
