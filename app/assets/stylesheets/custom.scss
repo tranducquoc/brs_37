@@ -496,3 +496,20 @@ input[type="submit"]:active {
   border: 1px solid #ccc;
   border-radius: 4px;
 }
+
+.comment textarea {
+  width: 100%;
+}
+
+.review_form {
+  margin-top: 10px;
+}
+
+ul {
+  margin-top: 10px;
+  list-style-type: none;
+}
+
+li {
+  list-style-type: none;
+}

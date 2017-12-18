@@ -14,4 +14,5 @@ Rails.application.routes.draw do
   resources :books, only: %i(index show) do
     resources :reviews, only: :create
   end
+  resources :comments, only: :create
 end

@@ -16,6 +16,7 @@ class UsersController < ApplicationController
     @activities = @user
       .activities
       .arrange
+      .includes(:user)
       .paginate page: params[:activity_page], per_page: Settings.user.show_activities
   end
 

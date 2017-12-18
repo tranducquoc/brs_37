@@ -23,6 +23,7 @@ gem "bootstrap-will_paginate", "1.0.0"
 gem "carrierwave"
 gem "mini_magick", "4.7.0"
 gem "fog-aws", "2.0.0"
+gem "pry"
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
   gem "capybara", "~> 2.13"

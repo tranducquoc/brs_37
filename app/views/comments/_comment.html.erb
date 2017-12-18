@@ -1,0 +1,7 @@
+<li>
+  <span class="user"><%= link_to comment.user.full_name, comment.user %></span>
+  <p class="review-p"><%= comment.content %></p>
+  <span class="timestamp">
+    <%= t "posted" %> <%= time_ago_in_words(comment.created_at) %> <%= t "ago" %>.
+  </span>
+</li>
