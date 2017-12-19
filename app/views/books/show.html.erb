@@ -1,9 +1,10 @@
 <div class="container">
-  <div>
-    <%= image_tag @book.cover_image, alt: @book.title if @book.cover_image %>
-    <%= @book.title %>
-    <%= @book.author %>
-    <%= @book.summary %>
+  <%= image_tag @book.cover_image, alt: @book.title, class: "avatar-book" if @book.cover_image %>
+  <div class="book-right">
+    <p><%= t "title" %> : <%= @book.title %></p>
+    <p><%= t "author" %> : <%= @book.author %></p>
+    <p><%= t "summary" %> :</p>
+    <p><%= @book.summary %></p>
   </div>
   <h4><%= t "review" %></h4>
   <div class="review"><%= render "reviews/review_form" %></div>

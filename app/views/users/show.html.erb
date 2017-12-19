@@ -2,7 +2,7 @@
   <aside class="col-md-5">
     <div class="arthor-detail-column">
       <div class="arthor-img">
-        <%= image_tag @user.avatar, alt: @user.full_name if @user.avatar? %>
+        <%= image_tag @user.avatar, alt: @user.full_name, class: "avatar" if @user.avatar? %>
         <% if current_user? @user %>
           <%= link_to t("edit_profile"), edit_user_path(@user) , class: "edit-tag" %>
         <% end %>
@@ -13,7 +13,7 @@
       </div>
     </div>
   </aside>
-  <ol class="activities"><%= render @activities %></ol>
+  <ol class="activities-user"><%= render @activities %></ol>
   <%= will_paginate @activities, param_name: :activity_page %>
   <table class="table">
   <thead>

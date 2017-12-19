@@ -8,7 +8,7 @@ class BooksController < ApplicationController
 
   def show
     @review  = @book.reviews.build
-    @reviews = @book.reviews.includes :user
+    @reviews = @book.reviews.arrange.includes :user
     @comment = current_user.comments.build
   end
 

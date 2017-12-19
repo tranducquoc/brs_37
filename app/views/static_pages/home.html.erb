@@ -12,7 +12,7 @@
 <% if logged_in? %>
   <div class="container">
     <% if @activity_items.any? %>
-      <ol class="activities">
+      <ol class="activities-home">
         <%= render @activity_items %>
       </ol>
       <%= will_paginate @activity_items %>

@@ -26,7 +26,7 @@ class CommentsController < ApplicationController
   def blank_comment
     return if comment_params[:content].present?
     flash[:danger] = t "blank_comment"
-    redirect_to @review.book
+    redirect_to @book
   end
 
   def comment_params

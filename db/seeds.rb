@@ -30,7 +30,7 @@ end
   publish_date = Time.zone.now
   author = Faker::Book.author
   the_number_of_pages = 20 + Random.rand(300)
-  summary = Faker::Lorem.sentences
+  summary = Faker::Lorem.paragraph
   cover_image = "cover_image.png"
   rating = 1 + Random.rand(4)
   Book.create!(
