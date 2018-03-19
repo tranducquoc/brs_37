@@ -12,3 +12,5 @@ class AccountActivationsController < ApplicationController
     end
   end
 end
+
+viet tao hfvjh
